@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>Sree QR Studio</title>
+
+  <!-- ✅ Google AdSense verification -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2311537617116643"
+    crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,9 +17,10 @@
 
   <header>
     <h1>Sree QR Studio</h1>
-    <p>Text • Link • Emoji • File </p>
+    <p>Text • Link • Emoji • File QR</p>
   </header>
 
+  <!-- INPUT CARD -->
   <div class="card">
     <label>🔗 Text / Link / Emoji</label>
     <input id="qrText" type="text" placeholder="Text, link, emoji 😊" />
@@ -21,13 +28,16 @@
 
     <div class="divider"></div>
 
-    <label>📁 Upload File</label>
+    <label>📁 Upload File (Image / Video / PDF)</label>
     <input id="fileInput" type="file" />
-    <button class="small-btn file-btn" onclick="uploadAndGenerateQR()">Upload & Generate QR</button>
+    <button class="small-btn file-btn" onclick="uploadAndGenerateQR()">
+      Upload & Generate QR
+    </button>
 
     <p id="status"></p>
   </div>
 
+  <!-- QR OUTPUT -->
   <div class="card qr-card" id="qrCard">
     <div id="qrBox"></div>
     <button class="download" onclick="downloadQR()">⬇ Download QR</button>
@@ -35,13 +45,13 @@
 
 </div>
 
-<!-- QR -->
+<!-- ✅ Libraries (ORDER MATTERS) -->
 <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
-
-<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
 
+<!-- ✅ Your app JS (LAST) -->
 <script src="script.js"></script>
+
 </body>
 </html>
