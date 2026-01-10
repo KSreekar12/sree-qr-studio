@@ -11,24 +11,23 @@
 
   <header>
     <h1>Sree QR Studio</h1>
-    <p>Create QR for Link • File • Image • GIF • Video</p>
+    <p>Text • Link • Emoji • File </p>
   </header>
 
-  <!-- INPUT CARD -->
   <div class="card">
-    <label>🔗 Paste Link</label>
-    <input id="qrText" type="text" placeholder="https://example.com" />
+    <label>🔗 Text / Link / Emoji</label>
+    <input id="qrText" type="text" placeholder="Text, link, emoji 😊" />
+    <button class="small-btn" onclick="generateFromText()">Generate QR</button>
 
-    <div class="divider">OR</div>
+    <div class="divider"></div>
 
     <label>📁 Upload File</label>
     <input id="fileInput" type="file" />
+    <button class="small-btn file-btn" onclick="uploadAndGenerateQR()">Upload & Generate QR</button>
 
-    <button class="primary" onclick="generateFromText()">Generate from Link</button>
-    <button onclick="generateFromFile()">Generate from File</button>
+    <p id="status"></p>
   </div>
 
-  <!-- QR OUTPUT -->
   <div class="card qr-card" id="qrCard">
     <div id="qrBox"></div>
     <button class="download" onclick="downloadQR()">⬇ Download QR</button>
@@ -36,7 +35,13 @@
 
 </div>
 
+<!-- QR -->
 <script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+
 <script src="script.js"></script>
 </body>
 </html>
