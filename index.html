@@ -1,57 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Sree QR Studio</title>
+<meta charset="UTF-8">
+<title>Sree QR Generator – Free QR Codes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free QR code generator for links, text and emojis. Create and download QR codes instantly.">
 
-  <!-- ✅ Google AdSense verification -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2311537617116643"
-    crossorigin="anonymous"></script>
+<!-- QR CODE LIBRARY (STABLE) -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 
-  <link rel="stylesheet" href="style.css" />
+<!-- GOOGLE ADSENSE (ADD YOUR CLIENT ID LATER) -->
+<!--
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXX"
+crossorigin="anonymous"></script>
+-->
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+header {
+  background: #eef2ff;
+  padding: 30px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 6px;
+}
+
+header p {
+  color: #475569;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  margin-bottom: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.95;
+}
+
+#qrcode {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.download-note {
+  text-align: center;
+  font-size: 14px;
+  color: #475569;
+  margin-top: 10px;
+}
+
+.content {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.content h2 {
+  margin-top: 25px;
+}
+
+.content p, .content li {
+  line-height: 1.7;
+  font-size: 15px;
+  color: #475569;
+}
+
+/* ADSENSE SAFE ZONE */
+.ad-box {
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px dashed #94a3b8;
+  text-align: center;
+  color: #64748b;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+  color: #64748b;
+}
+</style>
 </head>
+
 <body>
+
+<header>
+  <h1>Sree QR Generator</h1>
+  <p>Create free QR codes for text, emoji & links</p>
+</header>
 
 <div class="container">
 
-  <header>
-    <h1>Sree QR Studio</h1>
-    <p>Text • Link • Emoji • File QR</p>
-  </header>
-
-  <!-- INPUT CARD -->
+  <!-- QR TOOL (NO ADS HERE – POLICY SAFE) -->
   <div class="card">
-    <label>🔗 Text / Link / Emoji</label>
-    <input id="qrText" type="text" placeholder="Text, link, emoji 😊" />
-    <button class="small-btn" onclick="generateFromText()">Generate QR</button>
+    <label>Enter text / emoji / link</label>
+    <input id="qrText" placeholder="https://example.com or Hello 😊">
+    <button onclick="generateQR()">Generate QR Code</button>
 
-    <div class="divider"></div>
-
-    <label>📁 Upload File (Image / Video / PDF)</label>
-    <input id="fileInput" type="file" />
-    <button class="small-btn file-btn" onclick="uploadAndGenerateQR()">
-      Upload & Generate QR
-    </button>
-
-    <p id="status"></p>
+    <div id="qrcode"></div>
+    <div class="download-note">
+      Right-click on the QR image → Save image
+    </div>
   </div>
 
-  <!-- QR OUTPUT -->
-  <div class="card qr-card" id="qrCard">
-    <div id="qrBox"></div>
-    <button class="download" onclick="downloadQR()">⬇ Download QR</button>
+  <!-- CONTENT (GOOGLE NEEDS THIS) -->
+  <div class="content">
+    <h2>What is a QR Code?</h2>
+    <p>
+      A QR Code (Quick Response Code) is a type of barcode that stores information
+      such as website URLs, text messages, emojis, or contact details.
+      QR codes are widely used in digital payments, education, marketing, and events.
+    </p>
+
+    <h2>How to Use This QR Generator</h2>
+    <ol>
+      <li>Enter a link, text, or emoji</li>
+      <li>Click the Generate QR Code button</li>
+      <li>Scan or download the QR code</li>
+    </ol>
+
+    <h2>Why Use Sree QR Generator?</h2>
+    <ul>
+      <li>100% free QR code generation</li>
+      <li>No registration required</li>
+      <li>Works on mobile and desktop</li>
+      <li>Fast and secure</li>
+    </ul>
+  </div>
+
+  <!-- ADSENSE SAFE AD (YOU EARN HERE) -->
+  <div class="ad-box">
+    <!-- Replace this box with Google AdSense code AFTER approval -->
+    Google Advertisement
   </div>
 
 </div>
 
-<!-- ✅ Libraries (ORDER MATTERS) -->
-<script src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<footer>
+  © 2026 Sree QR Generator. All rights reserved.
+</footer>
 
-<!-- ✅ Your app JS (LAST) -->
-<script src="script.js"></script>
+<script>
+function generateQR() {
+  const text = document.getElementById("qrText").value.trim();
+  if (!text) {
+    alert("Please enter text or link");
+    return;
+  }
+
+  document.getElementById("qrcode").innerHTML = "";
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: text,
+    width: 200,
+    height: 200
+  });
+}
+</script>
 
 </body>
 </html>
