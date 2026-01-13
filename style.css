@@ -1,6 +1,10 @@
+/* =========================
+   BASE (YOUR ORIGINAL CODE)
+   ========================= */
+
 * {
   box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 body {
@@ -15,6 +19,8 @@ body {
 
 .container {
   width: 360px;
+  max-width: 100%;
+  padding: 12px;
 }
 
 header {
@@ -22,33 +28,58 @@ header {
   margin-bottom: 18px;
 }
 
+header h1 {
+  margin-bottom: 6px;
+}
+
+header p {
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
 .card {
   background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
   border-radius: 16px;
   padding: 18px;
   margin-bottom: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
 label {
   font-size: 13px;
+  display: block;
+  margin-bottom: 6px;
 }
 
 input {
   width: 100%;
   margin: 6px 0;
-  padding: 10px;
+  padding: 10px 12px;
   border-radius: 10px;
   border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: 2px solid #38bdf8;
 }
 
 .small-btn {
-  padding: 6px 14px;
+  padding: 8px 16px;
   font-size: 13px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
   background: #38bdf8;
   color: #020617;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.small-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(56,189,248,0.4);
 }
 
 .file-btn {
@@ -64,25 +95,90 @@ input {
 .qr-card {
   display: none;
   text-align: center;
+  margin-top: 10px;
 }
 
 #qrBox {
   background: white;
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 14px;
   display: inline-block;
 }
 
 .download {
-  margin-top: 12px;
-  padding: 8px 16px;
-  border-radius: 8px;
+  margin-top: 14px;
+  padding: 8px 18px;
+  border-radius: 10px;
   border: none;
   background: #facc15;
   cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.download:hover {
+  background: #fde047;
 }
 
 #status {
   font-size: 12px;
   margin-top: 6px;
+  color: #cbd5f5;
+}
+
+/* =========================
+   ADD BELOW (RESPONSIVE)
+   ========================= */
+
+/* 📱 MOBILE */
+@media (max-width: 480px) {
+  body {
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  header p {
+    font-size: 13px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+/* 📱 TABLET */
+@media (min-width: 481px) and (max-width: 900px) {
+  .container {
+    width: 420px;
+  }
+}
+
+/* 🖥 DESKTOP */
+@media (min-width: 901px) {
+  .container {
+    width: 380px;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY & UX
+   ========================= */
+
+button:focus,
+.small-btn:focus,
+.download:focus {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+::placeholder {
+  color: #94a3b8;
 }
